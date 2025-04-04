@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website | Dark Theme</title>
+    <title>Ivan Alcantara | Personal Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AOS Animation Library -->
@@ -13,10 +13,12 @@
 </head>
 <body>
     
-
     <header>
         <div class="container">
-            <h1 class="logo">John Doe</h1>
+            <h1 class="logo">Ivan Alcantara</h1>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -33,11 +35,15 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h2>Hello, I'm <span class="highlight">John Doe</span></h2>
-                <h3>Web Developer & Photography Enthusiast</h3>
-                <a href="#contact" class="btn">Get In Touch</a>
+                <h2>Hello, I'm <span class="highlight">Ivan Alcantara</span></h2>
+                <h3><span class="typed-text"></span><span class="cursor">&nbsp;</span></h3>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn primary-btn">Get In Touch</a>
+                    <a href="#about" class="btn secondary-btn">About Me</a>
+                </div>
             </div>
         </div>
+        <div class="hero-overlay"></div>
     </section>
 
     <section id="about" class="about">
@@ -45,12 +51,28 @@
             <h2 class="section-title" data-aos="fade-up">About Me</h2>
             <div class="about-content">
                 <div class="about-image" data-aos="fade-right" data-aos-delay="200">
-                    <img src="https://via.placeholder.com/300" alt="Profile Image">
+                    <div class="image-frame">
+                        <img src="https://via.placeholder.com/300" alt="Profile Image">
+                    </div>
                 </div>
                 <div class="about-text" data-aos="fade-left" data-aos-delay="400">
-                    <p>Hello! I'm John, a passionate web developer with a love for creating beautiful and functional websites. I have been working in the field for over 5 years, specializing in front-end development.</p>
-                    <p>I graduated from State University with a degree in Computer Science and have since worked with various clients across different industries. When I'm not coding, you can find me exploring my various hobbies or learning new technologies.</p>
-                    <p>I believe in continuous learning and challenging myself to grow both personally and professionally.</p>
+                    <p>Hello! I'm <span class="highlight">Ivan Alcantara</span>, a passionate individual with diverse interests and skills. I thrive on challenges and enjoy expressing my creativity in various forms.</p>
+                    <p>I balance my professional life with a commitment to physical fitness at the gym. When I'm not working out, I enjoy spontaneous adventures that sometimes lead to unexpected outcomes - like arriving home safely but with little memory of the journey!</p>
+                    <p>I believe in living life to the fullest and embracing new experiences that come my way.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>5+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat">
+                            <h3>20+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat">
+                            <h3>15+</h3>
+                            <p>Happy Clients</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,30 +83,29 @@
             <h2 class="section-title" data-aos="fade-up">My Hobbies</h2>
             <div class="hobby-cards">
                 <div class="hobby-card" data-aos="zoom-in">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Gym</h3>
+                    <p>Dedicated to fitness and strength training. I hit the gym regularly to maintain physical and mental health.</p>
+                </div>
+                <div class="hobby-card" data-aos="zoom-in" data-aos-delay="100">
                     <i class="fas fa-camera"></i>
                     <h3>Photography</h3>
                     <p>I love capturing moments through my lens. Landscape and street photography are my specialties.</p>
                 </div>
-                <div class="hobby-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="hobby-card" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-car"></i>
+                    <h3>Night Drives</h3>
+                    <p>Sometimes I end up at home with no memory of the drive. Life's little mysteries keep things interesting.</p>
+                </div>
+                <div class="hobby-card" data-aos="zoom-in" data-aos-delay="300">
                     <i class="fas fa-hiking"></i>
                     <h3>Hiking</h3>
                     <p>Exploring nature trails and reaching mountain summits gives me a sense of accomplishment.</p>
-                </div>
-                <div class="hobby-card" data-aos="zoom-in" data-aos-delay="200">
-                    <i class="fas fa-book"></i>
-                    <h3>Reading</h3>
-                    <p>I enjoy science fiction and non-fiction books that expand my knowledge and imagination.</p>
-                </div>
-                <div class="hobby-card" data-aos="zoom-in" data-aos-delay="300">
-                    <i class="fas fa-chess"></i>
-                    <h3>Chess</h3>
-                    <p>Strategic thinking and planning ahead are skills I've developed through playing chess.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
     <section id="gallery" class="gallery">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Photo Gallery</h2>
@@ -212,7 +233,7 @@
                 <div class="contact-info" data-aos="fade-right">
                     <div class="info-item">
                         <i class="fas fa-envelope"></i>
-                        <p>johndoe@example.com</p>
+                        <p>ivan.alcantara@example.com</p>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-phone"></i>
@@ -250,7 +271,33 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 John Doe. All Rights Reserved.</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Ivan Alcantara</h3>
+                    <p>Living life one adventure at a time</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Ivan Alcantara. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 

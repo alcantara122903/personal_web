@@ -56,27 +56,70 @@ document.addEventListener('DOMContentLoaded', function() {
     // Run immediately to set active class on page load
     addActiveClassToNav();
 
-    // Add dark theme aesthetic enhancements
-    const addDarkThemeEnhancements = () => {
-        // Add neon text effect to section titles
-        document.querySelectorAll('.section-title').forEach(title => {
-            title.classList.add('neon-text');
+    // Mobile menu toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('nav');
+    
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenuToggle.querySelector('i').classList.toggle('fa-bars');
+            mobileMenuToggle.querySelector('i').classList.toggle('fa-times');
         });
+    }
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                mobileMenuToggle.querySelector('i').classList.add('fa-bars');
+                mobileMenuToggle.querySelector('i').classList.remove('fa-times');
+            }
+        });
+    });
+
+    // Typing animation for hero section
+    const typedTextElement = document.querySelector('.typed-text');
+    if (typedTextElement) {
+        const typingDelay = 100;
+        const erasingDelay = 50;
+        const newTextDelay = 2000;
         
-        // Add glow animation to logo
-        const logo = document.querySelector('.logo');
-        if (logo) {
-            logo.classList.add('glow-animation');
+        const textArray = [
+            "Web Developer", 
+            "Gym Enthusiast", 
+            "Night Driver", 
+            "Photography Lover"
+        ];
+        
+        let textArrayIndex = 0;
+        let charIndex = 0;
+        
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                typedTextElement.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } else {
+                setTimeout(erase, newTextDelay);
+            }
         }
         
-        // Add parallax effect to sections
-        document.querySelectorAll('.hero, .contact').forEach(section => {
-            section.classList.add('parallax');
-        });
-    };
-    
-    // Apply dark theme enhancements
-    addDarkThemeEnhancements();
+        function erase() {
+            if (charIndex > 0) {
+                typedTextElement.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } else {
+                textArrayIndex++;
+                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+                setTimeout(type, typingDelay + 1000);
+            }
+        }
+        
+        setTimeout(type, newTextDelay + 250);
+    }
 
     // Gallery Filtering
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -189,4 +232,38 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 1500);
         });
     }
+
+    // Add dark theme aesthetic enhancements
+    const addDarkThemeEnhancements = () => {
+        // Add neon text effect to section titles
+        document.querySelectorAll('.section-title').forEach(title => {
+            title.classList.add('neon-text');
+        });
+        
+        // Add glow animation to logo
+        const logo = document.querySelector('.logo');
+        if (logo) {
+            logo.classList.add('glow-animation');
+        }
+        
+        // Add parallax effect to sections
+        document.querySelectorAll('.hero, .contact').forEach(section => {
+            section.classList.add('parallax');
+        });
+    };
+    
+    // Apply dark theme enhancements
+    addDarkThemeEnhancements();
+
+    // Header scroll effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.style.padding = '10px 0';
+            header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
+        } else {
+            header.style.padding = '';
+            header.style.boxShadow = '';
+        }
+    });
 });
